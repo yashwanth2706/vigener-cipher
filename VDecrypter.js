@@ -49,5 +49,7 @@ for(d=0;d<crptmsg.length;d++)
 }
 key = undefined;
 newkey = undefined;
+return store;
 }
-decode("sxvrgd ev htor", "secret");
+let decoded_message = decode("sxvrgd ev htor", "secret");
+console.log(decoded_message);
