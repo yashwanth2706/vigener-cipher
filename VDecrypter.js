@@ -1,18 +1,18 @@
-function decode()
+function decode(crptmsg, key)
 {
-let crptmsg,key;
 let alpha='abcdefghijklmnopqrstuvwxyz';
-crptmsg=prompt('Enter message');
-key=prompt('Enter Key');
-let k,newkey='',copy,d, searchr, searchc;
-let decrypt,end,store='';
+  
+let k, newkey='', copy, d, searchr, searchc, decrypt, end, store='';
+  
 for(k=0;k<crptmsg.length;k++)
 {
   copy=key[k%key.length];
   newkey=newkey+copy;
 }
+  
 for(d=0;d<crptmsg.length;d++)
 {
+  
   searchc=alpha.indexOf(crptmsg[d]);
   searchr=alpha.indexOf(newkey[d]);
   
@@ -43,10 +43,11 @@ for(d=0;d<crptmsg.length;d++)
   {
     end = crptmsg[d];
   }
+  
   store=store+end;
+  
 }
 key = undefined;
 newkey = undefined;
-console.log(store);
 }
-decode();
+decode("sxvrgd ev htor", "secret");
