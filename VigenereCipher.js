@@ -1,5 +1,6 @@
 function encode(message, key) {
   let alpha = 'abcdefghijklmnopqrstuvwxyz';
+  let copy, newkey;
   for(k=0;k<message.length;k++)
   {
     copy=key[k%key.length]
