@@ -15,7 +15,8 @@ function encode(message, key) {
     let crypt = (encrypt >= 26 && encrypt < 52) ? alpha[encrypt - 26] : (encrypt < 26) ? alpha[encrypt] : message[i];
     store += crypt;
   }
-  
+  message = undefined
+  key = undefined
   return store;
 }
 
