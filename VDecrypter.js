@@ -18,24 +18,9 @@ for(d=0;d<crptmsg.length;d++)
   
   let decrypt = ((searchr == -1) || (searchc == -1)) ? 99 : (searchc-searchr);
   
-  if(decrypt<0)
-  {
-    decrypt=decrypt+26;
-  }
+  decrypt = (decrypt < 0) ? decrypt + 26 : decrypt;
   
-  if((decrypt>26)&&(decrypt<=52))
-  {
-    end=alpha[decrypt-26];
-  }
-  else
-  if((decrypt>=0)&&(decrypt<26))
-  {
-    end=alpha[decrypt];
-  }
-  else
-  {
-    end = crptmsg[d];
-  }
+  end = (decrypt > 26 && decrypt <= 52) ? alpha[decrypt-26] : (decrypt >= 0 && decrypt < 26) ? alpha[decrypt] : crptmsg[d];
   
   store=store+end;
   
