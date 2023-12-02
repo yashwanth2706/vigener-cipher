@@ -16,14 +16,7 @@ for(d=0;d<crptmsg.length;d++)
   searchc=alpha.indexOf(crptmsg[d]);
   searchr=alpha.indexOf(newkey[d]);
   
-  if((searchr == -1) || (searchc == -1))
-  {
-    decrypt = 99;
-  }
-  else
-  {
-    decrypt=searchc-searchr;
-  }
+  let decrypt = ((searchr == -1) || (searchc == -1)) ? 99 : (searchc-searchr);
   
   if(decrypt<0)
   {
