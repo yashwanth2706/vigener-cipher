@@ -3,7 +3,7 @@ function encode(message, key) {
   let copy = "", newkey = "";
   for(k=0;k<message.length;k++)
   {
-    copy=key[k%key.length]
+    copy=key[k%key.length];
     newkey=newkey+copy;
   }
   let store = "";
@@ -15,8 +15,8 @@ function encode(message, key) {
     let crypt = (encrypt >= 26 && encrypt < 52) ? alpha[encrypt - 26] : (encrypt < 26) ? alpha[encrypt] : message[i];
     store += crypt;
   }
-  message = undefined
-  key = undefined
+  message = undefined;
+  key = undefined;
   return store;
 }
 
