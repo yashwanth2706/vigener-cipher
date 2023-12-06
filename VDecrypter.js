@@ -1,33 +1,45 @@
-function decode(crptmsg, key)
-{
-let alpha='abcdefghijklmnopqrstuvwxyz';
-  
-let k, newkey='', copy, d, searchr, searchc, decrypt, end, store='';
-  
-for(k=0;k<crptmsg.length;k++)
-{
-  copy=key[k%key.length];
-  newkey=newkey+copy;
+let alpha = "abcdefghijklmnopqrstuvwxyz";
+let decode_msg = "", decipher = "", new_key = "";
+let searchc = 0, searchr = 0, decrypt = 0;
+
+function checkmsg_len(crptmsg, key) {
+    if(crptmsg > 5000 || key > 5000) {
+        console.error("error string too long.!", null);
+        return -1;
+    }
+    else
+    if(crptmsg.length == key.length){
+        return key;
+    }
+    else{
+        let generatekey = decode_newkey(key, crptmsg.length, 0);
+        return decode(crptmsg, generatekey, 0);
+    }
 }
-  
-for(d=0;d<crptmsg.length;d++)
-{
-  
-  searchc=alpha.indexOf(crptmsg[d]);
-  searchr=alpha.indexOf(newkey[d]);
-  
-  decrypt = ((searchr == -1) || (searchc == -1)) ? 99 : (searchc-searchr);
-  
-  decrypt = (decrypt < 0) ? decrypt + 26 : decrypt;
-  
-  end = (decrypt > 26 && decrypt <= 52) ? alpha[decrypt-26] : (decrypt >= 0 && decrypt < 26) ? alpha[decrypt] : crptmsg[d];
-  
-  store=store+end;
-  
+
+function decode_newkey(key, msg_length, k) {
+    if(msg_length == 0) {
+        return new_key;
+    }
+    else
+    new_key = new_key + key[k%(key.length)];
+    return decode_newkey(key, msg_length-1, k+1);
 }
-key = undefined;
-newkey = undefined;
-return store;
+
+
+function decode(crptmsg, msg_newkey, d) {
+    if(d == crptmsg.length) {
+        return decode_msg;
+    }
+    else
+    searchc = alpha.indexOf(crptmsg[d]);
+    searchr = alpha.indexOf(msg_newkey[d]);
+    decrypt = ((searchr == -1) || (searchc == -1)) ? 99 : (searchc-searchr);
+    decrypt = (decrypt < 0) ? decrypt + 26 : decrypt;
+    decipher = (decrypt > 26 && decrypt <= 52) ? alpha[decrypt-26] : (decrypt >= 0 && decrypt < 26) ? alpha[decrypt] : crptmsg[d];
+    decode_msg = decode_msg + decipher;
+    return decode(crptmsg, msg_newkey, d+1)
 }
-let decoded_message = decode("sxvrgd ev htor", "secret");
-console.log(decoded_message);
+
+let decrypt_message = checkmsg_len("sxvrgd ev htor","secret");
+console.log(decrypt_message);
