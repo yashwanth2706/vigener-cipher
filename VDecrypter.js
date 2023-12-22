@@ -3,7 +3,7 @@ let decode_msg = "", decipher = "", new_key = "";
 let searchc = 0, searchr = 0, decrypt = 0;
 
 function checkmsg_len(crptmsg, key) {
-    if(crptmsg > 5000 || key > 5000) {
+    if(crptmsg.length > 5000 || key.length > 5000) {
         console.error("error string too long.!", null);
         return -1;
     }
