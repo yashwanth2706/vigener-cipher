@@ -26,7 +26,7 @@ function DECODE_MSG(crptmsg, key) {
 }
 
 //Recursive Function to generate new key if key length is short than message or longer than message
-//newkey function generates the key length exactly equal to meaage length
+//newkey function generates the key length exactly equal to message length
 
 function newkey(key, msg_length, k) {
     if(msg_length == 0) {
