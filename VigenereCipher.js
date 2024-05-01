@@ -1,13 +1,14 @@
 let alpha = 'abcdefghijklmnopqrstuvwxyz';
 
 let cipher_msg = "";
-let NEW_KEY = "";
 let cipher = ""; 
 let encrypt_msg = "";
 
 let searchc = 0;
 let searchr = 0;
 let encrypt = 0;
+
+let NEW_KEY = "";
 
 //Function to check if message length is too long
 
