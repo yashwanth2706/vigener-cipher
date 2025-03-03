@@ -29,5 +29,5 @@ def decode(crptmsg, new_key):
     return decode_msg
 
 # Function call
-decrypt_message = decode_msg("lxfopvefrnhr", "lemon")
+decrypt_message = decode_msg("lxfopv mh oeib", "lemon")
 print(decrypt_message)

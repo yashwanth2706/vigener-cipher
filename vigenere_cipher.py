@@ -29,4 +29,4 @@ def encode(message, new_key):
         cipher_msg += cipher
     return cipher_msg
 
-print(encrypt_msg("attackatdawn", "lemon"))
+print(encrypt_msg("attack at dawn", "lemon"))
